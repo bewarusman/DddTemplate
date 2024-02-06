@@ -24,14 +24,24 @@ public class CreateEmployeeCommand : BaseRequest<Result>
 
         public async Task<Result> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employee = new Employee(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
-            var affectedRows = await _employeeRepository.Create(employee);
+            try
+            {
+                var employee = new Employee(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
+                var affectedRows = await _employeeRepository.Create(employee);
 
-            if (affectedRows != 1)
-                throw new CommandException("The employee could not be created!");
+                if (affectedRows != 1)
+                    throw new CommandException("The employee could not be created!");
 
-            var message = $"The new employee '{employee.FirstName}' is created";
-            return Result.Success(employee, message);
+                var message = $"The new employee '{employee.FirstName}' is created";
+                return Result.Success(employee, message);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+            return Result.Failed("filed");
         }
     }
 }

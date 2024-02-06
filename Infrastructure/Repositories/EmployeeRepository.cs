@@ -15,9 +15,10 @@ public class EmployeeRepository : IEmployeeRepository
 
     public Task<int> Create(Employee employee)
     {
-        var sql = "INSERT INTO....";
+        var sql = "INSERT INTO employee(ID,FIRSTNAME,LASTNAME,EMAIL,PHONENUMBER) values(:Id,:FirstName,:LastName,:Email,:PhoneNumber)";
         return _dbService.Execute(sql, employee);
     }
+
 
     public Task<IList<Employee>> Find()
     {

@@ -34,7 +34,7 @@ namespace Web.Controllers.Api
 
             var result = await Mediator.Send(command);
             var employee = result.GetValue<Employee>();
-            return Ok(command);
+            return Ok(result);
         }
 
         // PUT api/<ValuesController>/5

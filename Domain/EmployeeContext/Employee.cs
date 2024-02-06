@@ -12,6 +12,7 @@ public class Employee : Entity
 
     public Employee() { }
 
+
     public Employee(string firstName, string lastName, string email, string phoneNumber)
     {
         if (string.IsNullOrEmpty(firstName))
@@ -23,13 +24,13 @@ public class Employee : Entity
         if (string.IsNullOrEmpty(email))
             throw new NotFoundException("Email should not be empty!");
 
-        if (Rule.IsValidEmail(email))
+        if (!Rule.IsValidEmail(email))
             throw new InvalidFormatException("Email is not valid!");
 
         if (string.IsNullOrEmpty(phoneNumber))
             throw new NotFoundException("Phone Number should not be empty!");
 
-        if (Rule.IsValidPhoneNumber(phoneNumber))
+        if (!Rule.IsValidPhoneNumber(phoneNumber))
             throw new InvalidFormatException("Phone Number is not valid!");
 
         FirstName = firstName;
