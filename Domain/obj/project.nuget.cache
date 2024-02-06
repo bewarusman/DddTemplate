@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UAPivIOOZ36OHsRKx51qBFCgo5szuaAyBUr41g6hVtxWbdmag3nDUdm4mj2V3DGHZXb3DstHWphMSVHmOfRjxg==",
+  "dgSpecHash": "FYTG9PEyZOH9n3Qc4pofsoFLL7KMJtX36iN2Qj5ELGUeDWIxvRfhzvu72MfaXPnxUMNnMALODwQ1TdwFffZjuQ==",
   "success": true,
-  "projectFilePath": "D:\\korek\\Audit\\korek_repo\\DddTemplate\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\apps\\DddTemplate\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

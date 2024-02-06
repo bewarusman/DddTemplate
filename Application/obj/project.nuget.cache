@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "avNf2sx/ujak+VUnQ9J2/iL2GiMIkimJTgpQUHAt0wWbrN/1lhn3RXlpzTgAOAtg3RHmv+WZD5v+z8x+oWYTWA==",
+  "dgSpecHash": "G6hUFBIxG0MrVqXpRgF/o0WvwDtxn+4Ebxx3EHc6qAE3pKgU2GUuMmY1fhbqTiJGyvTz3wJJ3lTEug6kPSshjw==",
   "success": true,
-  "projectFilePath": "D:\\korek\\Audit\\korek_repo\\DddTemplate\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\apps\\DddTemplate\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\automapper\\13.0.0\\automapper.13.0.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
