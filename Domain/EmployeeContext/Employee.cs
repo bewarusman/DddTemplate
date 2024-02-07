@@ -50,18 +50,25 @@ public class Employee : Entity
         if (string.IsNullOrEmpty(email))
             throw new NotFoundException("Email should not be empty!");
 
-        if (Rule.IsValidEmail(email))
+        if (!Rule.IsValidEmail(email))
             throw new InvalidFormatException("Email is not valid!");
 
         if (string.IsNullOrEmpty(phoneNumber))
             throw new NotFoundException("Phone Number should not be empty!");
 
-        if (Rule.IsValidPhoneNumber(phoneNumber))
+        if (!Rule.IsValidPhoneNumber(phoneNumber))
             throw new InvalidFormatException("Phone Number is not valid!");
 
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        PhoneNumber = phoneNumber;
+        if (firstName != "")
+            FirstName = firstName;
+
+        if (lastName != "")
+            LastName = lastName;
+
+        if (email != "")
+            Email = email;
+
+        if (phoneNumber != "")
+            PhoneNumber = phoneNumber;
     }
 }

@@ -38,9 +38,15 @@ namespace Web.Controllers.Api
         }
 
         // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<IActionResult> Put(UpdateEmployeeCommand command)
         {
+
+            if (!ModelState.IsValid)
+                return BadRequest(command);
+            var result = await Mediator.Send(command);
+            var employee = result.GetValue<Employee>();
+            return Ok(result);
         }
 
         // DELETE api/<ValuesController>/5

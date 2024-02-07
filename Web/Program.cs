@@ -1,11 +1,13 @@
 using Application;
 using Infrastructure;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog();
 builder.Services.AddApplication();
 builder.Services.AddHttpContextAccessor();
 //builder.Services.AddSingleton<Application.Common.Interfaces.IAuthenticationService, Web.Services.AuthenticationService>();

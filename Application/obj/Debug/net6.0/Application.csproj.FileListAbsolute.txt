@@ -1,0 +1,15 @@
+D:\apps\DddTemplate\Application\bin\Debug\net6.0\Application.deps.json
+D:\apps\DddTemplate\Application\bin\Debug\net6.0\Application.dll
+D:\apps\DddTemplate\Application\bin\Debug\net6.0\ref\Application.dll
+D:\apps\DddTemplate\Application\bin\Debug\net6.0\Application.pdb
+D:\apps\DddTemplate\Application\bin\Debug\net6.0\Domain.dll
+D:\apps\DddTemplate\Application\bin\Debug\net6.0\Domain.pdb
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.AssemblyInfo.cs
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs.cache
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.dll
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\ref\Application.dll
+D:\apps\DddTemplate\Application\obj\Debug\net6.0\Application.pdb

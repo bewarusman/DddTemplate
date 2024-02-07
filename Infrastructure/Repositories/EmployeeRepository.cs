@@ -27,11 +27,13 @@ public class EmployeeRepository : IEmployeeRepository
 
     public Task<Employee> FindOne(string id)
     {
-        throw new NotImplementedException();
+        var sql = "select * from employee where Id=:Id";
+        return _dbService.QuerySingle<Employee>(sql, new { Id = id });
     }
 
     public Task<int> Update(Employee employee)
     {
-        throw new NotImplementedException();
+        var sql = "update employee set FirstName=:FirstName ,LastName=:LastName ,Email=:Email ,PhoneNumber=:PhoneNumber where Id=:Id";
+        return _dbService.Execute(sql, employee);
     }
 }
