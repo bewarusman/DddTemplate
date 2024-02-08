@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\apps\\DddTemplate\\Application\\Application.csproj": {}
+    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj": {}
   },
   "projects": {
-    "D:\\apps\\DddTemplate\\Application\\Application.csproj": {
+    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\apps\\DddTemplate\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\apps\\DddTemplate\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\alan.abdullah\\.nuget\\packages\\",
-        "outputPath": "D:\\apps\\DddTemplate\\Application\\obj\\",
+        "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alan.abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rebaz.mohsin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\apps\\DddTemplate\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\apps\\DddTemplate\\Domain\\Domain.csproj"
+              "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj"
               }
             }
           }
@@ -67,7 +67,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -76,21 +77,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\apps\\DddTemplate\\Domain\\Domain.csproj": {
+    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\apps\\DddTemplate\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\apps\\DddTemplate\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\alan.abdullah\\.nuget\\packages\\",
-        "outputPath": "D:\\apps\\DddTemplate\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alan.abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rebaz.mohsin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,7 +122,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -130,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

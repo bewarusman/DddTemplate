@@ -22,7 +22,9 @@ public class EmployeeRepository : IEmployeeRepository
 
     public Task<IList<Employee>> Find()
     {
-        throw new NotImplementedException();
+
+        var sql = "SELECT * FROM employee";
+        return _dbService.Query<Employee>(sql);
     }
 
     public Task<Employee> FindOne(string id)

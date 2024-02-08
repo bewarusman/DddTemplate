@@ -5,54 +5,60 @@ using Web.Common;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Web.Controllers.Api
+namespace Web.Controllers.Api;
+
+[Route("api/[controller]")]
+[ApiController]
+public class EmployeesController : BaseApiController
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EmployeesController : BaseApiController
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        // GET: api/<ValuesController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        var query = new FindEmployeesQuery();
+        var result = await Mediator.Send(query);
+        var employees = result.GetValue<List<Employee>>();
+        return Ok(employees);
+    }
 
-        // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+    
 
-        // POST api/<ValuesController>
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateEmployeeCommand command)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(command);
 
-            var result = await Mediator.Send(command);
-            var employee = result.GetValue<Employee>();
-            return Ok(result);
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(string id)
+    {
+        var query = new FindEmployeeByIdQuery { id = id };
+        var result = await Mediator.Send(query);
+        var employees = result.GetValue<List<Employee>>();
+        return Ok(result);
+    }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut]
-        public async Task<IActionResult> Put(UpdateEmployeeCommand command)
-        {
+    // POST api/<ValuesController>
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] CreateEmployeeCommand command)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(command);
 
-            if (!ModelState.IsValid)
-                return BadRequest(command);
-            var result = await Mediator.Send(command);
-            var employee = result.GetValue<Employee>();
-            return Ok(result);
-        }
+        var result = await Mediator.Send(command);
+        var employee = result.GetValue<Employee>();
+        return Ok(result);
+    }
 
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+    // PUT api/<ValuesController>/5
+    [HttpPut]
+    public async Task<IActionResult> Put(UpdateEmployeeCommand command)
+    {
+
+        if (!ModelState.IsValid)
+            return BadRequest(command);
+        var result = await Mediator.Send(command);
+        var employee = result.GetValue<Employee>();
+        return Ok(result);
+    }
+
+    // DELETE api/<ValuesController>/5
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
     }
 }

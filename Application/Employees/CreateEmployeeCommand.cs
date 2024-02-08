@@ -24,8 +24,7 @@ public class CreateEmployeeCommand : BaseRequest<Result>
 
         public async Task<Result> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
+      
                 var employee = new Employee(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
                 var affectedRows = await _employeeRepository.Create(employee);
 
@@ -34,14 +33,7 @@ public class CreateEmployeeCommand : BaseRequest<Result>
 
                 var message = $"The new employee '{employee.FirstName}' is created";
                 return Result.Success(employee, message);
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-            }
-
-            return Result.Failed("filed");
+          
         }
     }
 }
