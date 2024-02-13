@@ -21,7 +21,6 @@ public class FindEmployeeByIdQuery : BaseRequest<Result>
 
 
         public async Task<Result> Handle(FindEmployeeByIdQuery request, CancellationToken cancellationToken)
-
         {
             var employees = await _employeeRepository.FindOne(request.id);
             return Result.Success(employees);

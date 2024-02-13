@@ -12,7 +12,6 @@ public class Employee : Entity
 
     public Employee() { }
 
-
     public Employee(string firstName, string lastName, string email, string phoneNumber)
     {
         if (string.IsNullOrEmpty(firstName))

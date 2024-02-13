@@ -41,7 +41,7 @@ public class EmployeesController : BaseApiController
 
         var result = await Mediator.Send(command);
         var employee = result.GetValue<Employee>();
-        return Ok(result);
+        return Ok(employee);
     }
 
     // PUT api/<ValuesController>/5

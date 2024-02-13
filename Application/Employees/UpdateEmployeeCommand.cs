@@ -27,7 +27,7 @@ public class UpdateEmployeeCommand : BaseRequest<Result>
             var employee = await _employeeRepository.FindOne(request.Id);
 
             if (employee == null)
-                throw new QueryException("couldnot find record with given id");
+                throw new QueryException("could not find record with given id");
 
             employee.Update(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
 
