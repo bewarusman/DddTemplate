@@ -1,8 +1,8 @@
 ﻿using Domain.Common.Exceptions;
 
-namespace Domain.EmployeeContext;
 
-public class EmployeeSalary
+namespace Domain.EmployeeContext;
+public class EmployeeSalary : Entity
 {
     public string EmployeeId { get; set; }
     public string SalaryId { get; set; }

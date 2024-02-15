@@ -9,5 +9,5 @@ public interface IEmployeeSalaryRepository : ISingletonService
     Task<IList<EmployeeSalary>> Find();
     Task<EmployeeSalary> FindOne(string id);
     Task<int> Update(EmployeeSalary employeeSalary);
-    Task<int> Delete(EmployeeSalary employeeSalary);
+   
 }

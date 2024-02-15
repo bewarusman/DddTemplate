@@ -1,4 +1,5 @@
 ﻿using Application.Employees;
+using Application.Salaries;
 using Domain.EmployeeContext;
 using Microsoft.AspNetCore.Mvc;
 using Web.Common;
@@ -34,7 +35,7 @@ public class EmployeesController : BaseApiController
 
     // POST api/<ValuesController>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] CreateEmployeeCommand command)
+    public async Task<IActionResult> Post([FromBody] CreateSalaryCommand command)
     {
         if (!ModelState.IsValid)
             return BadRequest(command);

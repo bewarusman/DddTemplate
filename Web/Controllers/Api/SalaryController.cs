@@ -49,7 +49,7 @@ public class SalaryController : BaseApiController
     //Not Implemented Yet
     // PUT api/<ValuesController>/5
     //[HttpPut]
-    //public async Task<IActionResult> Put(UpdateSalaryCoommand command)
+    //public async Task<IActionResult> Put(UpdateSalaryCommand command)
     //{
 
     //    if (!ModelState.IsValid)

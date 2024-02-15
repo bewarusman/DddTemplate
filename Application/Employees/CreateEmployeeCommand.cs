@@ -1,8 +1,9 @@
 ﻿using Application.Common.Exceptions;
 using Application.Common.Messaging;
 using Application.Common.Repositories;
-using Domain.EmployeeContext;
+
 using MediatR;
+using Domain.EmployeeContext;
 
 namespace Application.Employees;
 
