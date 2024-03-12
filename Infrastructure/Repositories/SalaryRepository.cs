@@ -17,11 +17,18 @@ public class SalaryRepository : ISalaryRepository
 
     public Task<int> Create(Salary salary)
     {
-        //var sql = "INSERT INTO Salary (id, Employee_id, Amount, IsLast) VALUES(:Id, :EmployeeId, :Amount,BOOL_TO_NUM(:IsLast))";
-        var sql = "INSERT INTO Salary (id, Employee_id, Amount, IsLast) VALUES(:Id, :EmployeeId, :Amount,:IsLast)";
+        var queries = new List<Tuple<string, object>>();
+        var updateSql = "UPDATE Salary SET IsLast = BOOL_TO_NUM(:IsLast) WHERE Employee_Id = :EmployeeId";
+        queries.Add(new Tuple<string, object>(updateSql, new
+        {
+            isLast = false,
+            salary.EmployeeId
+        }));
 
+        var sql = "INSERT INTO Salary (id, Employee_Id, Amount, IsLast, CreatedAt) VALUES(:Id, :EmployeeId, :Amount, BOOL_TO_NUM(:IsLast),:CreatedAt)";
+        queries.Add(new Tuple<string, object>(sql, salary));
 
-        return _dbService.Execute(sql, salary);
+        return _dbService.ExecuteWithTransaction(queries);
     }
 
 
@@ -43,7 +50,7 @@ public class SalaryRepository : ISalaryRepository
         return _dbService.Execute(sql, salary);
     }
 
-    
+
     public Task<int> Delete(Salary salary)
     {
         var sql = "DELETE FROM salary WHERE Id=:Id";

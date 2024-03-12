@@ -6,26 +6,28 @@ public class Salary : Entity
 {
     public string EmployeeId { get; set; }
     public decimal Amount { get; set; }
-    public int IsLast { get; set; }
+    public bool IsLast { get; set; }
+    public DateTime CreatedAt { get; set; }
+
 
     public Salary() { }
 
-    public Salary(string employeeId, decimal amount, int isLast)
+    public Salary(string employeeId, decimal amount)
     {
         ValidateParameters(employeeId, amount);
 
         EmployeeId = employeeId;
         Amount = amount;
-        IsLast = 1;
+        IsLast = true;
     }
 
-    public void Update(string employeeId, decimal amount, int isLast)
+    public void Update(string employeeId, decimal amount)
     {
         ValidateParameters(employeeId, amount);
 
         EmployeeId = employeeId;
         Amount = amount;
-        IsLast = 1;
+        IsLast = true;
     }
 
     private void ValidateParameters(string employeeId, decimal amount)
@@ -41,6 +43,3 @@ public class Salary : Entity
         }
     }
 }
-
-
-

@@ -4,14 +4,23 @@ using Application.Common.Repositories;
 
 using MediatR;
 using Domain.EmployeeContext;
+using System.ComponentModel.DataAnnotations;
 
 namespace Application.Employees;
 
 public class CreateEmployeeCommand : BaseRequest<Result>
 {
+    [Required(ErrorMessage = "The first name is required!")]
     public string FirstName { get; set; }
+
     public string LastName { get; set; }
+
+    [Required]
+    [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
+
+    [Required]
+    [DataType(DataType.PhoneNumber)]
     public string PhoneNumber { get; set; }
 
     public class Handler : IRequestHandler<CreateEmployeeCommand, Result>

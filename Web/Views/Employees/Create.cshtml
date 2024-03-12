@@ -1,0 +1,45 @@
+﻿@model Application.Employees.CreateEmployeeCommand
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+
+<h1 class="text-4xl mb-4 mt-4">Create New Employee</h1>
+
+<div class="w-full max-w-xs mx-auto ">
+    <form asp-action="Create" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label asp-for="FirstName" class="block text-gray-700 text-sm font-bold mb-2">
+                First Name
+            </label>
+            <input asp-for="FirstName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="John">
+            <span asp-validation-for="FirstName" class="text-red-900"></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="FirstName" class="block text-gray-700 text-sm font-bold ">
+                Last Name
+            </label>
+            <input asp-for="LastName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Doe">
+            <span asp-validation-for="LastName" class="text-red-900"></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="Email" class="block text-gray-700 text-sm font-bold mb-2">
+                Email
+            </label>
+            <input asp-for="Email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="John@example.com">
+            <span asp-validation-for="Email" class="text-red-900"></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="PhoneNumber" class="block text-gray-700 text-sm font-bold mb-2">
+                PhoneNumber
+            </label>
+            <input asp-for="PhoneNumber" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="+964750 XXX XX XX">
+            <span asp-validation-for="PhoneNumber" class="text-red-900"></span>
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">Submit</button>
+    </form>
+</div>
+
+
+
+

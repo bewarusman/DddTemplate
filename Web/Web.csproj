@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="logs\" />
-    <Folder Include="Views\Salary\" />
   </ItemGroup>
 
 </Project>

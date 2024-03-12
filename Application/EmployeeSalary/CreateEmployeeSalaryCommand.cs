@@ -17,7 +17,7 @@ public class CreateEmployeeSalaryCommand : BaseRequest<Result>
     public decimal Bonus { get; set; }
     public int Year { get; set; }
     public int Month { get; set; }
-    public decimal Total { get; set; }
+    //public decimal Total { get; set; }
 
     // Handler for the command
     public class Handler : IRequestHandler<CreateEmployeeSalaryCommand, Result>
@@ -39,7 +39,7 @@ public class CreateEmployeeSalaryCommand : BaseRequest<Result>
             //
             // Create a new EmployeeSalary object with provided data
             //
-            var employeeSal = new EmployeeSalary(request.EmployeeId, request.SalaryId, request.Amount, request.Bonus, request.Year, request.Month, request.Total);
+            var employeeSal = new EmployeeSalary(request.EmployeeId, request.SalaryId, request.Amount, request.Bonus, request.Year, request.Month);
 
             //
             // Call repository method to create the salary record

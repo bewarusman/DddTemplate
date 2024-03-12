@@ -2,7 +2,7 @@
 
 
 namespace Domain.EmployeeContext;
-public class EmployeeSalary : Entity
+public class EmployeeSalary
 {
     public string EmployeeId { get; set; }
     public string SalaryId { get; set; }
@@ -21,11 +21,11 @@ public class EmployeeSalary : Entity
         decimal amount,
         decimal bonus,
         int year,
-        int month,
-        decimal total
+        int month
+        
     )
     {
-        ValidateParameters(employeeId, salaryId, amount, total);
+        ValidateParameters(employeeId, salaryId, amount);
 
         EmployeeId = employeeId;
         SalaryId = salaryId;
@@ -33,7 +33,8 @@ public class EmployeeSalary : Entity
         Bonus = bonus;
         Year = year;
         Month = month;
-        Total = total;
+        Total = Amount + Bonus;
+        //Total = total;
     }
 
 
@@ -46,14 +47,14 @@ public class EmployeeSalary : Entity
             int month,
             decimal total)
     {
-        ValidateParameters(employeeId, salaryId, amount, total);
+        ValidateParameters(employeeId, salaryId, amount);
         EmployeeId = employeeId;
         SalaryId = salaryId;
         Amount = amount;
         Bonus = bonus;
         Year = year;
         Month = month;
-        Total = total;
+        Total = amount+ bonus;
     }
 
 
@@ -61,7 +62,7 @@ public class EmployeeSalary : Entity
 
 
 
-    private void ValidateParameters(string employeeId, string salaryId, decimal amount, decimal total)
+    private void ValidateParameters(string employeeId, string salaryId, decimal amount)
     {
         if (string.IsNullOrEmpty(employeeId))
         {
@@ -78,9 +79,6 @@ public class EmployeeSalary : Entity
             throw new InvalidFormatException("Amount must be greater than zero.");
         }
 
-        if (total <= 0)
-        {
-            throw new InvalidFormatException("Total must be greater than zero.");
-        }
+         
     }
 }

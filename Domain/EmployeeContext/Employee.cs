@@ -5,10 +5,19 @@ namespace Domain.EmployeeContext;
 
 public class Employee : Entity
 {
+    
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
+    public decimal? Amount { get; set; }
+    public decimal? Year { get; set; }
+    public decimal? Month { get; set; }
+    public decimal? Bonus { get; set; }
+    public decimal? Total { get; set; }
+    public string? SalaryId { get; set; }
+    
+
 
     public Employee() { }
 
@@ -36,6 +45,7 @@ public class Employee : Entity
         LastName = lastName;
         Email = email;
         PhoneNumber = phoneNumber;
+       
     }
 
     public void Update(string firstName, string lastName, string email, string phoneNumber)
@@ -66,8 +76,8 @@ public class Employee : Entity
 
         if (email != "")
             Email = email;
-
+        
         if (phoneNumber != "")
-            PhoneNumber = phoneNumber;
+           PhoneNumber = phoneNumber;
     }
 }

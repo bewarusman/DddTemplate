@@ -7,7 +7,7 @@ public interface IEmployeeSalaryRepository : ISingletonService
 {
     Task<int> Create(EmployeeSalary employeeSalary);
     Task<IList<EmployeeSalary>> Find();
-    Task<EmployeeSalary> FindOne(string id);
+    Task<IList<EmployeeSalary>> FindMany(string id);
     Task<int> Update(EmployeeSalary employeeSalary);
    
 }

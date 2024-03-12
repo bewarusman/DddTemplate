@@ -30,12 +30,12 @@ public class EmployeesController : BaseApiController
         var query = new FindEmployeeByIdQuery { id = id };
         var result = await Mediator.Send(query);
         var employees = result.GetValue<List<Employee>>();
-        return Ok(result);
+        return Ok(employees);
     }
 
     // POST api/<ValuesController>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] CreateSalaryCommand command)
+    public async Task<IActionResult> Post([FromBody] CreateEmployeeCommand command)
     {
         if (!ModelState.IsValid)
             return BadRequest(command);
@@ -49,7 +49,6 @@ public class EmployeesController : BaseApiController
     [HttpPut]
     public async Task<IActionResult> Put(UpdateEmployeeCommand command)
     {
-
         if (!ModelState.IsValid)
             return BadRequest(command);
         var result = await Mediator.Send(command);

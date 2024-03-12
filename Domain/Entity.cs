@@ -10,7 +10,7 @@ public abstract class Entity
     public Entity()
     {
         Id = Guid.NewGuid().ToString();
-        CreatedAt = DateTime.UtcNow;
+        CreatedAt = DateTime.Now;
         UpdatedAt = CreatedAt;
     }
 

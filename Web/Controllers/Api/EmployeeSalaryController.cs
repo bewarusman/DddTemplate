@@ -1,7 +1,5 @@
 ﻿using Application.Employees;
-using Application.Salaries;
 using Domain.EmployeeContext;
-using Microsoft.AspNet.SignalR.Messaging;
 using Microsoft.AspNetCore.Mvc;
 using Web.Common;
 
@@ -15,7 +13,7 @@ namespace Web.Controllers.Api
     {
         // GET: api/<EmployeeSalaryController>
         [HttpGet]
-        public async Task<IActionResult>  Get()
+        public async Task<IActionResult> Get()
         {
             var query = new FindEmployeeSalaryQuery();
             var result = await Mediator.Send(query);
@@ -25,9 +23,12 @@ namespace Web.Controllers.Api
 
         // GET api/<EmployeeSalaryController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
-            return "True";
+            var query = new FindEmployeeSalaryByIdQuery { id = id };
+            var result = await Mediator.Send(query);
+            var employees = result.GetValue<List<Employee>>();
+            return Ok(result);
         }
 
         // POST api/<EmployeeSalaryController>
@@ -52,6 +53,7 @@ namespace Web.Controllers.Api
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
         }
     }
 }

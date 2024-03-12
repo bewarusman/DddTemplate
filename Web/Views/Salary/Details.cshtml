@@ -1,0 +1,46 @@
+﻿@model List<Domain.EmployeeContext.EmployeeSalary>
+
+@{
+    ViewData["Title"] = "Employee Page";
+}
+ 
+
+
+<h1 class="text-4xl bolder top-100 mb-3 mt-3" >List of Salaries</h1>
+<div>
+    <div class="text-right p-10 ">
+        @* <a asp-controller="Employees" asp-action="Create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">Add</a> *@
+    </div>
+    <div class="flex flex-col p-10">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                    <table class="min-w-full text-left text-sm ">
+                        <thead class="border-b font-medium dark:border-neutral-500">
+                            <tr>
+                                <th scope="col">Basic Salary</th>
+                                <th scope="col">Bonus</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Month</th>
+                                <th scope="col">Net Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var salary in Model)
+                            {
+                                <tr class="border-b dark:border-neutral-500">
+                                    <th class="whitespace-nowrap px-6 py-4 font-medium" scope="row">@salary.Amount</th>
+                                    <td class="whitespace-nowrap px-6 py-4">@salary.Bonus</td>
+                                    <td class="whitespace-nowrap px-6 py-4">@salary.Total</td>
+                                    <td class="whitespace-nowrap px-6 py-4"></td>
+                                    @* <td class="whitespace-nowrap px-6 py-4">@(salary.Amount != null ? salary.Amount.ToString() : "0")</td> *@
+
+                                  </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

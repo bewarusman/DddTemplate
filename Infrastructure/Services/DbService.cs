@@ -59,7 +59,7 @@ public class DbService : IDbService
         {
             try
             {
-                var result = await connection.ExecuteAsync(command.Item1, command.Item2, transaction: transaction);
+                int result = await connection.ExecuteAsync(command.Item1, command.Item2, transaction: transaction);
                 affectedRows += result;
             }
             catch (Exception ex)
@@ -94,6 +94,20 @@ public class DbService : IDbService
         {
             var result = await connection.QueryAsync<T>(sql, param);
             return result.FirstOrDefault();
+        }
+        catch (Exception ex)
+        {
+            throw new DbQueryException("Unable to run query.", ex, sql, param);
+        }
+    }
+
+    public async Task<IList<TU>> Query<T, U, TU>(string sql, object param, Func<T, U, TU> map, string splitOn)
+    {
+        using IDbConnection connection = GetConnection();
+        try
+        {
+            var result = await connection.QueryAsync(sql, map, param, splitOn: splitOn);
+            return result.ToList();
         }
         catch (Exception ex)
         {
