@@ -1,0 +1,17 @@
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Infrastructure.deps.json
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Infrastructure.dll
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\ref\Infrastructure.dll
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Infrastructure.pdb
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Application.dll
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Domain.dll
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Application.pdb
+D:\apps\NationalSecurity\Infrastructure\bin\Release\net6.0\Domain.pdb
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.csproj.AssemblyReference.cache
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.AssemblyInfoInputs.cache
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.AssemblyInfo.cs
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.csproj.CopyComplete
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.dll
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\ref\Infrastructure.dll
+D:\apps\NationalSecurity\Infrastructure\obj\Release\net6.0\Infrastructure.pdb

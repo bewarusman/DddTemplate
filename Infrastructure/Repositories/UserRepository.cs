@@ -13,9 +13,9 @@ public class UserRepository : IUserRepository
         _dbService = dbService;
     }
 
-    public Task<User> FindOne(string username)
+    public Task<NsAccount> FindOne(string username)
     {
         var sql = "SELECT * FROM Users WHERE Username = :Username";
-        return _dbService.QuerySingle<User>(sql, new { username });
+        return _dbService.QuerySingle<NsAccount>(sql, new { username });
     }
 }

@@ -1,0 +1,97 @@
+﻿@using Application.Common.Interfaces
+@inject IAuthenticationService _authenticationService   
+   
+<nav id="sidebar">
+        <!-- Sidebar Content -->
+        <div class="sidebar-content">
+          <!-- Side Header -->
+          <div class="content-header justify-content-lg-center">
+            <!-- Logo -->
+            <div>
+              <span class="smini-visible fw-bold tracking-wide fs-lg">
+                N<span class="text-primary">S</span>
+              </span>
+              <a class="link-fx fw-bold tracking-wide mx-auto" href="index.html">
+                <span class="smini-hidden">
+                  @*<i class="fa fa-fire text-primary"></i>*@
+                  <span class="fs-4 text-dual">National</span><span class="fs-4 text-primary">Security</span>
+                </span>
+              </a>
+            </div>
+            <!-- END Logo -->
+
+            <!-- Options -->
+            <div>
+              <!-- Close Sidebar, Visible only on mobile screens -->
+              <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+              <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout" data-action="sidebar_close">
+                <i class="fa fa-fw fa-times"></i>
+              </button>
+              <!-- END Close Sidebar -->
+            </div>
+            <!-- END Options -->
+          </div>
+          <!-- END Side Header -->
+
+          <!-- Sidebar Scrolling -->
+          <div class="js-sidebar-scroll simplebar-scrollable-y" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
+            <!-- Side User -->
+            <div class="content-side content-side-user px-0 py-0">
+              <!-- Visible only in mini mode -->
+              <div class="smini-visible-block animated fadeIn px-2">
+                <img class="img-avatar img-avatar32" src="~/assets/media/avatars/avatar15.jpg" alt="">
+              </div>
+              <!-- END Visible only in mini mode -->
+
+              <!-- Visible only in normal mode -->
+              <div class="smini-hidden text-center mx-auto">
+                <a class="img-link" asp-action="Index" asp-controller="NSRequest">
+                  <img class="img-avatar" src="~/assets/media/avatars/avatar15.jpg" alt="">
+                </a>
+                <ul class="list-inline mt-3 mb-0">
+                  <li class="list-inline-item">
+                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="be_pages_generic_profile.html">@_authenticationService.GetUserName()</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                    <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)">
+                      <i class="fa fa-burn"></i>
+                    </a>
+                  </li>
+ 
+                </ul>
+              </div>
+              <!-- END Visible only in normal mode -->
+            </div>
+            <!-- END Side User -->
+
+            <!-- Side Navigation -->
+            <div class="content-side content-side-full">
+              <ul class="nav-main">
+                <li class="nav-main-item">
+                  <a class="nav-main-link active" asp-controller="NSRequest" asp-action="Create">
+                    <i class="nav-main-link-icon fa fa-add"></i>
+                    <span class="nav-main-link-name">Create Request</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link active" asp-controller="NSRequest" asp-action="Index">
+                    <i class="nav-main-link-icon fa fa-list"></i>
+                    <span class="nav-main-link-name">List Requests</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link active"   asp-controller="NSRequest" asp-action="History">
+                    <i class="nav-main-link-icon fa fa-history"></i>
+                    <span class="nav-main-link-name">History</span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+            <!-- END Side Navigation -->
+          </div></div></div></div><div class="simplebar-placeholder" style="width: 250px; height: 336px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 25px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+          <!-- END Sidebar Scrolling -->
+        </div>
+        <!-- Sidebar Content -->
+      </nav>

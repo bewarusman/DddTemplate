@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\apps\\NationalSecurity\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj": {
+    "D:\\apps\\NationalSecurity\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\apps\\NationalSecurity\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\obj\\",
+        "projectPath": "D:\\apps\\NationalSecurity\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\alan.abdullah\\.nuget\\packages\\",
+        "outputPath": "D:\\apps\\NationalSecurity\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rebaz.mohsin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alan.abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj"
+              "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj"
               }
             }
           }
@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[13.0.0, )"
             },
+            "BCrypt.Net-Core": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.2.0, )"
@@ -56,11 +60,23 @@
               "target": "Package",
               "version": "[2.4.3, )"
             },
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Refit": {
               "target": "Package",
               "version": "[8.0.0, )"
             }
@@ -71,8 +87,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -81,21 +96,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj": {
+    "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Domain\\obj\\",
+        "projectPath": "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\alan.abdullah\\.nuget\\packages\\",
+        "outputPath": "D:\\apps\\NationalSecurity\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rebaz.mohsin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alan.abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -126,8 +141,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -136,21 +150,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\apps\\NationalSecurity\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\apps\\NationalSecurity\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Infrastructure\\obj\\",
+        "projectPath": "D:\\apps\\NationalSecurity\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\alan.abdullah\\.nuget\\packages\\",
+        "outputPath": "D:\\apps\\NationalSecurity\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rebaz.mohsin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alan.abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -164,8 +178,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\rebaz.mohsin\\source\\repos\\DddTemplate\\Application\\Application.csproj"
+              "D:\\apps\\NationalSecurity\\Application\\Application.csproj": {
+                "projectPath": "D:\\apps\\NationalSecurity\\Application\\Application.csproj"
               }
             }
           }
@@ -199,8 +213,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -209,7 +222,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,15 @@
+D:\apps\NationalSecurity\Application\bin\Release\net6.0\Application.deps.json
+D:\apps\NationalSecurity\Application\bin\Release\net6.0\Application.dll
+D:\apps\NationalSecurity\Application\bin\Release\net6.0\ref\Application.dll
+D:\apps\NationalSecurity\Application\bin\Release\net6.0\Application.pdb
+D:\apps\NationalSecurity\Application\bin\Release\net6.0\Domain.dll
+D:\apps\NationalSecurity\Application\bin\Release\net6.0\Domain.pdb
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.csproj.AssemblyReference.cache
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.AssemblyInfoInputs.cache
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.AssemblyInfo.cs
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.csproj.CoreCompileInputs.cache
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.csproj.CopyComplete
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.dll
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\ref\Application.dll
+D:\apps\NationalSecurity\Application\obj\Release\net6.0\Application.pdb

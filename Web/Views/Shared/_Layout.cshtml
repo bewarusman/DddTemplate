@@ -1,67 +1,215 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Web</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Web.styles.css"  />
-    <script src="https://cdn.tailwindcss.com" ></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            // clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
+﻿@using Application.Common.Interfaces
+@inject IAuthenticationService _authenticationService
+<!doctype html>
+<html lang="en" class="remember-theme">
+  <head>
+    <meta charset="utf-8">
+    <!--
+      Available classes for <html> element:
 
-  <style>
-       @await RenderSectionAsync("Styles", required: false)
-  </style>
-</head>
-<body>
+      'dark'                  Enable dark mode - Default dark mode preference can be set in app.js file (always saved and retrieved in localStorage afterwards):
+                                window.Codebase = new App({ darkMode: "system" }); // "on" or "off" or "system"
+      'dark-custom-defined'   Dark mode is always set based on the preference in app.js file (no localStorage is used)
+      'remember-theme'        Remembers active color theme between pages using localStorage when set through
+                                - Theme helper buttons [data-toggle="theme"]
+    -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <header>
+    <title>@ViewData["Title"]</title>
+
+
+    <!-- Open Graph Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="~/assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/media/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
     
-<nav class="bg-gray-50 dark:bg-red-700">
-    <div class="max-w-screen-xl px-4 py-3 mx-auto">
-        <div class="flex items-center">
-            <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
-                 <li class="">
-                            <a class="text-black bold dark:text-white hover:underline" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                 </li>
-                 <li class="">
-                            <a class="text-black bold dark:text-white hover:underline" asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
-                 </li>
-                 <li class="">
-                            <a class="text-black bold dark:text-white hover:underline" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                 </li>
-            </ul>
-        </div>
-    </div>
-</nav> 
-    </header>
-    <div class="container">
-        <main role="main" class="pb-10 mb-10">
-            @RenderBody()
-        </main>
-    </div>
 
-   
-    <footer class="border-top footer text-muted ">
-        <div class="container">
-            &copy; 2024 - Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Codebase framework -->
+    <link rel="stylesheet" id="css-main" href="~/assets/css/codebase.min.css">
+        
+      <style>
+           @await RenderSectionAsync("Styles", required: false)
+      </style>
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+
+    <!-- Load and set color theme + dark mode preference (blocking script to prevent flashing) -->
+    <script src="~/assets/js/setTheme.js"></script>
+
+
+  </head>
+
+  <body>
+
+
+  <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed side-trans-enabled"><div id="page-overlay"></div>
+ 
+      <!-- Sidebar -->
+      <!--
+        Helper classes
+
+        Adding .smini-hide to an element will make it invisible (opacity: 0) when the sidebar is in mini mode
+        Adding .smini-show to an element will make it visible (opacity: 1) when the sidebar is in mini mode
+          If you would like to disable the transition, just add the .no-transition along with one of the previous 2 classes
+
+        Adding .smini-hidden to an element will hide it when the sidebar is in mini mode
+        Adding .smini-visible to an element will show it only when the sidebar is in mini mode
+        Adding 'smini-visible-block' to an element will show it (display: block) only when the sidebar is in mini mode
+      -->
+        <partial name="_Sidebar.cshtml" />
+      <!-- END Sidebar -->
+
+      <!-- Header -->
+      <header id="page-header">
+        <!-- Header Content -->
+        <div class="content-header">
+          <!-- Left Section -->
+          <div class="space-x-1">
+            <!-- Toggle Sidebar -->
+            <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->
+            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="sidebar_toggle">
+              <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <!-- END Color Themes -->
+          </div>
+          <!-- END Left Section -->
+
+          <!-- Right Section -->
+          <div class="space-x-1">
+            <!-- User Dropdown -->
+            <div class="dropdown d-inline-block">
+              <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user d-sm-none"></i>
+                <span class="d-none d-sm-inline-block fw-semibold">@_authenticationService.GetUserName()</span>
+                <i class="fa fa-angle-down opacity-50 ms-1"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
+                <div class="px-2 py-3 bg-body-light rounded-top">
+                  <h5 class="h6 text-center mb-0">
+                    @_authenticationService.GetUserName()
+                  </h5>
+                </div>
+                <div class="p-2">
+
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" onclick="document.getElementById('logout_frm').submit();">
+                 
+                    <span>Sign Out</span>
+                    <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                     <form asp-action="Logout" asp-controller="Account" id="logout_frm">
+                   
+                    </form>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+            <!-- END User Dropdown -->
+
+
+            <!-- END Toggle Side Overlay -->
+          </div>
+          <!-- END Right Section -->
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-   <!-- <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <!-- END Header Content -->
+
+        <!-- Header Search -->
+        <div id="page-header-search" class="overlay-header bg-body-extra-light">
+          <div class="content-header">
+            <form class="w-100" action="be_pages_generic_search.html" method="POST">
+              <div class="input-group">
+                <!-- Close Search Section -->
+                <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->
+                <button type="button" class="btn btn-secondary" data-toggle="layout" data-action="header_search_off">
+                  <i class="fa fa-fw fa-times"></i>
+                </button>
+                <!-- END Close Search Section -->
+                <input type="text" class="form-control" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
+                <button type="submit" class="btn btn-secondary">
+                  <i class="fa fa-fw fa-search"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- END Header Search -->
+
+        <!-- Header Loader -->
+        <div id="page-header-loader" class="overlay-header bg-primary">
+          <div class="content-header">
+            <div class="w-100 text-center">
+              <i class="far fa-sun fa-spin text-white"></i>
+            </div>
+          </div>
+        </div>
+        <!-- END Header Loader -->
+      </header>
+      <!-- END Header -->
+
+      <!-- Main Container -->
+      <main id="main-container">
+        <!-- Page Content -->
+        <div class="content">
+         @RenderBody()
+        </div>
+        <!-- END Page Content -->
+      </main>
+      <!-- END Main Container -->
+ 
+    </div>
+ 
+ 
+    <script src="~/assets/js/codebase.app.min.js"></script>
+ 
+    <script src="~/assets/js/lib/jquery.min.js"></script>
+    <script src="~/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var error = '@TempData["ERROR_MSG"]';
+            if(error !== '') {
+ 
+             Codebase.helpers('jq-notify', {
+                    align: 'center',             // 'right', 'left', 'center'
+                    from: 'top',                // 'top', 'bottom'
+                    type: 'danger',               // 'info', 'success', 'warning', 'danger'
+                    icon: 'fa fa-close me-5',    // Icon class
+                    message: error
+                });
+
+            }
+
+            var success = '@TempData["SUCCESS_MSG"]';
+            //console.log(success);
+            if (success !== '' && success !== 'SUCCESS') {
+               
+            Codebase.helpers('jq-notify', {
+                align: 'center',             // 'right', 'left', 'center'
+                from: 'top',                // 'top', 'bottom'
+                type: 'success',               // 'info', 'success', 'warning', 'danger'
+                icon: 'fa fa-info me-5',    // Icon class
+                message: success
+            });
+
+
+            }
+
+
+
+
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
-   
-</body>
+  </body>
 </html>
+

@@ -1,0 +1,81 @@
+﻿@model IList<Domain.Entities.Requests>
+@using Domain.Entities;
+
+
+<div class="block block-rounded">
+ 
+<div class="block-content">
+    <table class="table table-vcenter datatable-tbl">
+    <thead>
+        <tr>
+ 
+        <th class="text-left">Request Type</th>
+        <th class="d-none d-sm-table-cell"  >Date</th>
+        <th class="d-none d-sm-table-cell"  >Status</th>
+        <th class="text-center" style="width: 100px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var row in Model)
+        {
+            <tr>
+                <th class="text-left" >@row.requestType.Name
+                    <ol class="d-none">
+                        @foreach (var item in row.requestInputs.Where(o=>o.isHidden==false))
+                        {
+                            <li>@item.input</li>
+                        }
+                    </ol>
+                </th>
+                <td>@row.CreatedAt</td>
+                <td class="d-none d-sm-table-cell">
+                    @if (row.Status == RequestStatus.CREATED)
+                    {
+                        <span class="badge bg-primary">@RequestStatus.CREATED</span>
+                    } else if (row.Status == RequestStatus.PROCESSING)
+                    {
+                                
+                        <span class="badge bg-warning">@RequestStatus.PROCESSING</span>
+                    }else if (row.Status == RequestStatus.COMPLETED)
+                    {
+                            <span class="badge bg-success">@RequestStatus.COMPLETED</span>
+                    } 
+                        else if (row.Status == RequestStatus.CLOSED)
+                    {
+                            <span class="badge bg-earth">@RequestStatus.CLOSED</span>
+                    } 
+                            
+                </td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a   title="Display" class="btn btn-sm btn-secondary js-bs-tooltip-enabled"  asp-action="Display" asp-route-id="@row.Id">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>       
+        }
+
+              
+    </tbody>
+    </table>
+</div>
+</div>
+
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css">
+}
+
+@section Scripts {
+    <script src="~/assets/js/plugins/datatables/dataTables.min.js"></script>
+   <script src="~/assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $('.datatable-tbl').dataTable({
+            ordering: true,
+         
+        });
+    </script>
+}

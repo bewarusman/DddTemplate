@@ -1,5 +1,6 @@
 using Application;
 using Infrastructure;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +13,18 @@ builder.Logging.ClearProviders();
 builder.Logging.AddSerilog();
 builder.Services.AddApplication();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<Application.Common.Interfaces.IAuthenticationService, Web.Services.AuthenticationService>();
 
 //builder.Services.AddSingleton<Application.Common.Interfaces.IAuthenticationService, Web.Services.AuthenticationService>();
 builder.Services.AddInfrstructure(builder.Configuration, builder.Environment.ContentRootPath);
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    options.SlidingExpiration = true;
+    options.AccessDeniedPath = "/Account/Login";
+});
+
 
 var app = builder.Build();
 
@@ -31,11 +41,14 @@ Log.Logger = new LoggerConfiguration()
     .Configuration(builder.Configuration)
     .CreateLogger();
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\": {}
+    "C:\\Users\\alan.abdullah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rebaz.mohsin\\Source\\Repos\\DddTemplate\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\rebaz.mohsin\\Source\\Repos\\DddTemplate\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\rebaz.mohsin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rebaz.mohsin\\Source\\Repos\\DddTemplate\\Domain\\obj\\",
+      "projectPath": "D:\\apps\\NationalSecurity\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\alan.abdullah\\.nuget\\packages\\",
+      "outputPath": "D:\\apps\\NationalSecurity\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rebaz.mohsin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alan.abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -51,8 +51,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -61,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,90 @@
+﻿@inject Application.Common.Repositories.IRequestTypeRepository _requestTypeRepository;
+@inject Application.Common.Repositories.ISubRequestTypeRepository _subRequestTypeRepository;
+@model Application.NsRequest.StoreRequestCommand;
+@{
+    var requests = await _requestTypeRepository.FindAll();
+    var requestItems = requests.Select(r => new SelectListItem(r.Name, r.Id));
+}
+
+<div class="container">
+          <div class="block block-rounded">
+            <div class="block-header block-header-default">
+              <h3 class="block-title">New Request</h3>
+            </div>
+            <div class="block-content p-2">
+              <form asp-action="Store" method="POST" enctype="multipart/form-data"   class="p-2">
+                    <div class="form-group" >
+                    <label>Request Type</label>
+                    <select class="form-control"  asp-items="@requestItems" id="rtype" asp-for="requestTypeId"  > </select>
+                    </div>
+
+                <hr />
+@*                <div class="form-group">
+                    <label>Sub Request</label>
+                    <select class="form-control"></select>
+                </div>*@
+
+                <div class="form-group">
+                    <label>Sub Request Type</label>
+                    <div class="col-6" id="items">
+                     
+                    </div>
+                    </div>
+                    <hr />
+                    <div class="inputs">
+                        <label>Inputs</label>
+                        <textarea class="form-control" required asp-for="requestInput"></textarea>
+                    </div>
+
+                   <button class="btn btn-primary my-4" type="submit"> 
+                      Submit
+                  </button>
+              </form>
+
+
+            </div>
+          </div>
+</div>
+
+
+@section scripts{
+    <script>
+
+
+    function loadsubRequests()
+    {
+        const selectedOptionId = $('#rtype').val();
+
+        var data='';
+        // Make the AJAX request using jQuery
+        $.ajax({
+            url: '/api/requestType/GetById?requestId='+selectedOptionId, // API endpoint
+            type: 'GET', // HTTP method
+            contentType: 'application/json', // Content type of the request
+            success: function(response) {
+                // Handle the successful response
+                console.log('Success:', response);
+                response.result.forEach(function(item){
+                    console.log(item);
+                    data+=`<label class="css-control css-control-primary css-checkbox">
+                            <input type="checkbox"  class="css-control-input" name="subRequestTypes[]" value="${item.id}">
+                            <span class="css-control-indicator"></span> ${item.name}
+                        </label> <br>`;
+                });
+                $("#items").html(data);
+            },
+            error: function(xhr, status, error) {
+                // Handle errors
+                console.error('Error:', error);
+            }
+        });
+    }
+
+     $('#rtype').on('change', function() {
+            const selectedValue = $(this).val();
+            loadsubRequests();
+        });
+        loadsubRequests();
+
+    </script>
+}

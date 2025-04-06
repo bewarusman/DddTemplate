@@ -1,0 +1,12 @@
+D:\apps\NationalSecurity\Domain\bin\Release\net6.0\Domain.deps.json
+D:\apps\NationalSecurity\Domain\bin\Release\net6.0\Domain.dll
+D:\apps\NationalSecurity\Domain\bin\Release\net6.0\ref\Domain.dll
+D:\apps\NationalSecurity\Domain\bin\Release\net6.0\Domain.pdb
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.csproj.AssemblyReference.cache
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.AssemblyInfoInputs.cache
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.AssemblyInfo.cs
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.csproj.CoreCompileInputs.cache
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.dll
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\ref\Domain.dll
+D:\apps\NationalSecurity\Domain\obj\Release\net6.0\Domain.pdb
