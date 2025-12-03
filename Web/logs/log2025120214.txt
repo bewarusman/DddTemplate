@@ -1,0 +1,60 @@
+2025-12-02 14:12:42.773 +03:00 Error A severe exception occured! Application.NsRequest.ValidationQuery ValidationQuery { RequestTypeId: "3d99ee65-fa4d-4300-86bb-f3c0a69ec206", RequestInput: "asdsa dasd" } System.Exception: Response status code does not indicate success: 404 (Not Found).
+ ---> Refit.ApiException: Response status code does not indicate success: 404 (Not Found).
+   at Refit.RequestBuilderImplementation.<>c__DisplayClass15_0`2.<<BuildCancellableTaskFuncForMethod>b__0>d.MoveNext() in c:\temp\releaser\refit\Refit\RequestBuilderImplementation.cs:line 384
+--- End of stack trace from previous location ---
+   at Refit.Implementation.Generated.InfrastructureServicesIValidationApi.global::Infrastructure.Services.IValidationApi.ValidateMultiple(ValidationRequest request) in D:\apps\NationalSecurity\Infrastructure\obj\Debug\net6.0\InterfaceStubGeneratorV2\Refit.Generator.InterfaceStubGeneratorV2\IValidationApi.g.cs:line 50
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 27
+   --- End of inner exception stack trace ---
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 42
+   at Application.NsRequest.ValidationQuery.ValidationQueryHandler.Handle(ValidationQuery request, CancellationToken cancellationToken) in D:\apps\NationalSecurity\Application\NsRequest\ValidationQuery.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+ 
+2025-12-02 14:13:06.213 +03:00 Error A severe exception occured! Application.NsRequest.ValidationQuery ValidationQuery { RequestTypeId: "3591d3c6-78df-4cd3-8f0f-c3034cdb8b30", RequestInput: "9647501002030" } System.Exception: Response status code does not indicate success: 404 (Not Found).
+ ---> Refit.ApiException: Response status code does not indicate success: 404 (Not Found).
+   at Refit.RequestBuilderImplementation.<>c__DisplayClass15_0`2.<<BuildCancellableTaskFuncForMethod>b__0>d.MoveNext() in c:\temp\releaser\refit\Refit\RequestBuilderImplementation.cs:line 384
+--- End of stack trace from previous location ---
+   at Refit.Implementation.Generated.InfrastructureServicesIValidationApi.global::Infrastructure.Services.IValidationApi.ValidateMultiple(ValidationRequest request) in D:\apps\NationalSecurity\Infrastructure\obj\Debug\net6.0\InterfaceStubGeneratorV2\Refit.Generator.InterfaceStubGeneratorV2\IValidationApi.g.cs:line 50
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 27
+   --- End of inner exception stack trace ---
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 42
+   at Application.NsRequest.ValidationQuery.ValidationQueryHandler.Handle(ValidationQuery request, CancellationToken cancellationToken) in D:\apps\NationalSecurity\Application\NsRequest\ValidationQuery.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+ 
+2025-12-02 14:15:22.757 +03:00 Error A severe exception occured! Application.NsRequest.ValidationQuery ValidationQuery { RequestTypeId: "3d99ee65-fa4d-4300-86bb-f3c0a69ec206", RequestInput: "dsa sads" } System.Exception: Response status code does not indicate success: 404 (Not Found).
+ ---> Refit.ApiException: Response status code does not indicate success: 404 (Not Found).
+   at Refit.RequestBuilderImplementation.<>c__DisplayClass15_0`2.<<BuildCancellableTaskFuncForMethod>b__0>d.MoveNext() in c:\temp\releaser\refit\Refit\RequestBuilderImplementation.cs:line 384
+--- End of stack trace from previous location ---
+   at Refit.Implementation.Generated.InfrastructureServicesIValidationApi.global::Infrastructure.Services.IValidationApi.ValidateMultiple(ValidationRequest request) in D:\apps\NationalSecurity\Infrastructure\obj\Debug\net6.0\InterfaceStubGeneratorV2\Refit.Generator.InterfaceStubGeneratorV2\IValidationApi.g.cs:line 50
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 27
+   --- End of inner exception stack trace ---
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 42
+   at Application.NsRequest.ValidationQuery.ValidationQueryHandler.Handle(ValidationQuery request, CancellationToken cancellationToken) in D:\apps\NationalSecurity\Application\NsRequest\ValidationQuery.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+ 
+2025-12-02 14:27:53.261 +03:00 Error A severe exception occured! Application.NsRequest.ValidationQuery ValidationQuery { RequestTypeId: "3d99ee65-fa4d-4300-86bb-f3c0a69ec206", RequestInput: "asdsad asdw" } System.Exception: No connection could be made because the target machine actively refused it. (localhost:7045)
+ ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7045)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Refit.RequestBuilderImplementation.<>c__DisplayClass15_0`2.<<BuildCancellableTaskFuncForMethod>b__0>d.MoveNext() in c:\temp\releaser\refit\Refit\RequestBuilderImplementation.cs:line 331
+--- End of stack trace from previous location ---
+   at Refit.Implementation.Generated.InfrastructureServicesIValidationApi.global::Infrastructure.Services.IValidationApi.ValidateMultiple(ValidationRequest request) in D:\apps\NationalSecurity\Infrastructure\obj\Debug\net6.0\InterfaceStubGeneratorV2\Refit.Generator.InterfaceStubGeneratorV2\IValidationApi.g.cs:line 50
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 27
+   --- End of inner exception stack trace ---
+   at Infrastructure.Services.ValidationApiService.ValidateMultiple2(String inputs, String inputType) in D:\apps\NationalSecurity\Infrastructure\Services\ValidationApiService.cs:line 42
+   at Application.NsRequest.ValidationQuery.ValidationQueryHandler.Handle(ValidationQuery request, CancellationToken cancellationToken) in D:\apps\NationalSecurity\Application\NsRequest\ValidationQuery.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+ 

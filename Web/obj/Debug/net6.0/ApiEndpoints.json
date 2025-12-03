@@ -1,0 +1,86 @@
+[
+  {
+    "ContainingType": "Web.Controllers.Api.RequestApiController",
+    "Method": "GetHistory",
+    "RelativePath": "api/request",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "start",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "number",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "from_date",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "to_date",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Controllers.Api.RequestApiController",
+    "Method": "Validate",
+    "RelativePath": "api/request/validate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Application.NsRequest.ValidationQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Controllers.Api.RequestTypeApi",
+    "Method": "get",
+    "RelativePath": "api/requestType",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Controllers.Api.RequestTypeApi",
+    "Method": "GetById",
+    "RelativePath": "api/requestType/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

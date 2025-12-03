@@ -15,6 +15,7 @@ D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNet.SignalR.Core.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SignalR.Client.Core.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SignalR.Common.dll
@@ -59,6 +60,7 @@ D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudi
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\NuGet.Common.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\NuGet.Configuration.dll
 D:\apps\NationalSecurity\Web\obj\Release\net6.0\PubTmp\Out\NuGet.DependencyResolver.Core.dll

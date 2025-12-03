@@ -15,7 +15,7 @@
     -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>@ViewData["Title"]</title>
+    <title>Nationa Security</title>
 
 
     <!-- Open Graph Meta -->
@@ -208,6 +208,24 @@
 
 
         });
+
+        
+        function openFileInNewWindow(byteData, fileName) {
+                var imageWindow = window.open();
+
+                
+                // Check if the data is an image by looking at the data URI prefix
+                if (byteData.startsWith('data:image')) {
+                    
+                    imageWindow.document.write('<img src="' + byteData + '">');
+                } else if (fileName.toLowerCase().endsWith('.pdf')) {
+            
+                    imageWindow.document.write('<iframe width="100%" height="100%" src="data:application/pdf;base64,' + byteData + '"></iframe>');
+                } else {
+        
+                    imageWindow.document.write('Unsupported file type');
+                }
+            }
     </script>
     @await RenderSectionAsync("Scripts", required: false)
   </body>

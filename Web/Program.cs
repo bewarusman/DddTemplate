@@ -1,7 +1,9 @@
 using Application;
+using Application.Common.Services;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Serilog;
+using Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,7 @@ builder.Logging.AddSerilog();
 builder.Services.AddApplication();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<Application.Common.Interfaces.IAuthenticationService, Web.Services.AuthenticationService>();
-
+builder.Services.AddTransient<IServerFileManager, ServerFileManager>();
 //builder.Services.AddSingleton<Application.Common.Interfaces.IAuthenticationService, Web.Services.AuthenticationService>();
 builder.Services.AddInfrstructure(builder.Configuration, builder.Environment.ContentRootPath);
 

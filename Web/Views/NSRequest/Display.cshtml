@@ -1,7 +1,7 @@
 ﻿@model Domain.Entities.Requests;
+@inject Application.Common.Services.IServerFileManager serverFileManager;
 @using Domain.Entities;
 
- 
     <div class="row">
         <div class="col-6">
             <div class="block block-rounded mb-0">
@@ -58,12 +58,30 @@
               </div>
             </div>
             <div class="block-content">
-                <ol>
-                    @foreach (var request in Model.subRequestTypes)
-                    {
-                        <li>@request.Name</li>
-                    }
-                </ol>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sub Request</th>
+                                <th>StartDate</th>
+                                <th>EndDate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                 @foreach (var request in Model.subRequestTypes)
+                                {
+                                    <tr>
+                                         
+                                        <td colspan="@(request.IsDatesRequired ? "1" : "4")">@request.Name</td>
+                                    @if(request.IsDatesRequired)
+                                    {
+                                        <td>@Model.requestWithSubRequest?.First(o=>o.subRequestId==request.Id)?.StartDate?.ToString("yyyy-MM-dd")</td>
+                                        <td>@Model.requestWithSubRequest?.First(o=>o.subRequestId==request.Id)?.EndDate?.ToString("yyyy-MM-dd")</td>
+                                   
+                                    }
+                                    </tr>
+                                }
+                        </tbody>
+                    </table>
             </div>
           </div>
     </div>
@@ -78,7 +96,7 @@
             </div>
             <div class="block-content">
                 <ol>
-                    @foreach (var input in Model.requestInputs)
+                    @foreach (var input in Model.requestInputs.Where(o=>o.isHidden==false))
                     {
                         <li>@input.input</li>
                     }
@@ -90,6 +108,7 @@
  
 </div>
 
+
 <div class="row">
     <div class="col-12">
         <div>
@@ -98,8 +117,83 @@
                 <h3 class="block-title">Response Files</h3>
             </div>
             <div class="block-content">
-              
+                  <div class="block-content block-content-full">
+        <div class="row my-3">
+   
+            @foreach (var attachment in Model.responseAttachments.Where(o=>o.chairman==false && o.core==false))
+            {
+        
+
+                    var file = await serverFileManager.PreviewFile(attachment.fileId);
+                    <input type="hidden" name="none" class="downloadale" value="@Url.Action("Download", "CourtLetter", new { fileId = file._id })" />
+
+                    @if (file.IsImage)
+                    {
+                        var fileInfo = await serverFileManager.Download(file._id);
+                                if (fileInfo.IsTiff)
+                                    {
+                                   
+                                        <div class="col-md-3 col-lg-3   animated fadeIn">
+                                            <div class="options-container fx-item-zoom-in fx-overlay-slide-down img-container">
+                                                <img class="img-fluid options-item" src="/uploads/assets/empty.png" alt="">
+                                                <h5 class="h4 text-white mb-5">@file.Filename</h5>
+    
+                                            </div>
+                                        </div>
+
+                                        <form asp-action="Download" method="post" asp-route-id="@file._id">
+                                            <input type="hidden" name="fileId" value="@file._id" />
+                                            <button class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75">
+                                                <i class="fa fa-download"></i> Preview
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-md-3 col-lg-3 col-xl-3 animated fadeIn">
+                                            <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
+                                                <img class="img-fluid options-item" src="@fileInfo.Src" alt="">
+                                                <div class="options-overlay bg-black-op-75">
+                                                    <div class="options-overlay-content">
+                                                        <h3 class="h4 text-white mb-5">@fileInfo.Filename</h3>
+                                                        <h4 class="h6 text-white-op mb-15">More Details</h4>
+                                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" onclick="openFileInNewWindow('@fileInfo.Src','@file.Filename')">
+                                                            <i class="fa fa-search-plus"></i> View
+                                                        </a>
+                                           
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                    }
+                    else
+                    {
+                        <div class="col-md-3 col-lg-3   animated fadeIn">
+                            <div class="options-container ">
+                                <img class="img-fluid options-item" src="@(file.IsPdf ? "/uploads/assets/pdf_icon.png" : "/uploads/assets/excel.webp")" alt="">
+                            </div>
+                            <div class="row text-center">
+                                     <h5 class="h4">@file.Filename</h5>
+                                        <form asp-action="Download" method="post" asp-route-id="@file._id">
+                                            <input type="hidden" name="fileId" value="@file._id" />
+                                            <button class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75">
+                                                <i class="fa fa-download"></i> Preview
+                                            </button>
+                                        </form>
+                            </div>
+
+                        </div>
+                    }
+                
+            }
+        </div>
+    </div>
+
             </div>
         </div>
     </div>
+</div>
+
 </div>

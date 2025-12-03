@@ -1,4 +1,5 @@
-﻿using Application.NsRequest;
+﻿using Application.Common.Services;
+using Application.NsRequest;
 using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -13,11 +14,13 @@ public class NSRequestController : BaseController
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IMediator _mediator;
+    private readonly IServerFileManager _serverFileManager;
 
-    public NSRequestController(ILogger<HomeController> logger, IMediator mediator)
+    public NSRequestController(ILogger<HomeController> logger, IMediator mediator, IServerFileManager serverFileManager)
     {
         _logger = logger;
         _mediator = mediator;
+        _serverFileManager = serverFileManager;
     }
 
     public async Task<IActionResult> Index()
@@ -34,14 +37,14 @@ public class NSRequestController : BaseController
         return View(new StoreRequestCommand());
     }
 
+    public IActionResult DealerCreate()
+    {
+        return View(new StoreRequestCommand());
+    }
+
     [HttpPost]
     public async Task<IActionResult> Store([FromForm] StoreRequestCommand command)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(command);
-        }
-
         var result = await _mediator.Send(command);
 
         return ReturnRedirect(
@@ -50,6 +53,7 @@ public class NSRequestController : BaseController
             result,
             null,
             null);
+
     }
 
     public IActionResult Privacy()
@@ -77,4 +81,35 @@ public class NSRequestController : BaseController
         var request = result.GetValue<Requests>();
         return View(request);
     }
+    public async Task<IActionResult> Validate([FromRoute] string inputs)
+    {
+        var query = new ValidationQuery();
+        query.RequestInput = inputs;
+        var result = await _mediator.Send(query);
+        return Ok(result);
+    }
+
+
+    [HttpPost("Download/{id}")]
+    public async Task<IActionResult> Download(string fileId)
+    {
+        var file = await _serverFileManager.Download(fileId);
+
+        return File(file.Filebytes, "application/octet-stream", file.Filename);
+    }
+
+    [HttpGet("OpenFile/{id}")]
+    public async Task<IActionResult> OpenFile(string Id)
+    {
+
+        var file = await _serverFileManager.Download(Id);
+
+        var stream = new MemoryStream(file.Filebytes);
+
+        Response.Headers.Add("Content-Disposition", "inline; filename=" + file.Filename);
+
+        return new FileStreamResult(stream, file.IsPdf ? "application/pdf" : "application/octet-stream");
+    }
+
+
 }

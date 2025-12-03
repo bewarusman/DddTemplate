@@ -19,5 +19,22 @@ namespace Web.Services
 
             return Name;
         }
+
+
+
+        public string GetUserId()
+        {
+            var claims = _httpContextAccessor.HttpContext.User.Claims;
+            var id = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            return id;
+        }
+        public string GetUserIp()
+        {
+            var ip = _httpContextAccessor.HttpContext
+                ?.Connection
+                ?.RemoteIpAddress
+                ?.ToString();
+            return ip;
+        }
     }
 }

@@ -1,0 +1,252 @@
+﻿@inject Application.Common.Repositories.IRequestTypeRepository _requestTypeRepository;
+@inject Application.Common.Repositories.ISubRequestTypeRepository _subRequestTypeRepository;
+@model Application.NsRequest.StoreRequestCommand;
+@{
+    var requests = await _requestTypeRepository.FindAllDealer();
+    var requestItems = requests.Select(r => new SelectListItem(r.Name, r.Id));
+}
+
+<div class="container">
+          <div class="block block-rounded">
+            <div class="block-header block-header-default">
+              <h3 class="block-title">New Request</h3>
+            </div>
+            <div class="block-content p-2">
+              <form asp-action="Store" method="POST" enctype="multipart/form-data" id="myfrm"  class="p-2">
+                    <div class="form-group" >
+                        <label>Request Type</label>
+                        <select class="form-control"  asp-items="@requestItems" id="rtype" asp-for="requestTypeId"  > </select>
+                    </div>
+                <hr />
+                <div class="form-group">
+                    <div class="alert alert-danger d-none" role="alert" id="alert-subrequest">kindly select sub request</div>
+                    <label>Sub Request Type</label>
+                    <div class="col-12" >
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>All Requests Date</td>
+                                    <td>
+                                        <input type="date" class="form-control" placeholder="From Date" onchange="changeAllInputs(this,'inp_from');" max="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control" placeholder="To Date"  onchange="changeAllInputs(this,'inp_to');" max="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody id="items"> 
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr />
+                <div class="d-none" id="validate">
+                <div class="alert alert-danger d-none" role="alert"> kindly fix the number below before submit</div>
+  
+                <ol id="errors">
+                   
+                </ol>
+
+                </div>
+                <div class="alert alert-warning d-none" role="alert" id="alert-warning"></div>
+                <div class="alert alert-success d-none" role="alert" id="alert-success">All numbers are valid</div>
+                    <div class="inputs">
+                        <label>Inputs</label>
+                        <textarea class="form-control" rows="7"  asp-for="requestInput" required>
+
+                        </textarea>
+                    </div>
+
+                   <button class="btn btn-success my-4 d-none" type="submit" id="submit" > 
+                      Submit
+                  </button>
+                   <button class="btn btn-danger my-4 d-none" type="button" id="cancel" onclick="Cancel();" > 
+                      Cancel
+                  </button>
+
+                   <button class="btn btn-primary my-4" type="button" id="vbtn"  onclick="validate_inp();" > 
+                      Validate
+                  </button>
+              </form>
+
+
+            </div>
+          </div>
+</div>
+
+
+@section scripts{
+    <script>
+
+
+    function loadsubRequests()
+    {
+        const selectedOptionId = $('#rtype').val();
+
+        var data='';
+        // Make the AJAX request using jQuery
+        $.ajax({
+            url: '/api/requestType/GetById?requestId='+selectedOptionId, // API endpoint
+            type: 'GET', // HTTP method
+            contentType: 'application/json', // Content type of the request
+            success: function(response) {
+                // Handle the successful response
+                console.log('Success:', response);
+                var count=0;
+                response.result.forEach(function(item){
+                    
+                    var id=item.name.replace(/ /g, "_");
+                    if(item.isDatesRequired)
+                    {
+                        data+=` <tr>
+                                    <td width="40%">
+                                        <div class="form-check form-switch form-check-inline">
+                                          <input type="text" name="SubRequestTypes[${count}].SubRequestType"  value="${item.id}" hidden>
+                                          <input class="form-check-input" type="checkbox" onchange="CheckStatusForDates('${id}')" id="${id}" name="SubRequestTypes[${count}].IsIncluded">
+                                          <label class="form-check-label" for="${id}"> <h5>${item.name}</h5>  </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control inp_from" placeholder="From Date" id="${id}from" name="SubRequestTypes[${count}].StartDate"  max="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/>
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control inp_to" placeholder="To Date" id="${id}to" name="SubRequestTypes[${count}].EndDate" max="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/>
+                                    </td>
+                                </tr>`;
+                    }else
+                    {
+                        data+=` <tr>
+                                    <td  colspan="3">
+                                        <div class="form-check form-switch form-check-inline">
+                                          <input type="text" name="SubRequestTypes[${count}].SubRequestType"  value="${item.id}" hidden>
+                                          <input class="form-check-input" type="checkbox" onchange="CheckStatusForDates('${id}')" id="${id}" name="SubRequestTypes[${count}].IsIncluded">
+                                          <label class="form-check-label" for="${id}"> <h5>${item.name}</h5>  </label>
+                                        </div>
+                                    </td>
+                                </tr>`;
+                    }
+
+                    count++;
+                });
+                $("#items").html(data);
+            },
+            error: function(xhr, status, error) {
+                // Handle errors
+                console.error('Error:', error);
+            }
+        });
+    }
+
+    function CheckStatusForDates(id)
+    {
+        console.log("#"+id)
+        if($("#"+id).is(":checked"))
+        {
+            $("#"+id).val(true);
+            $("#"+id+"from").attr("disabled",false);
+            $("#"+id+"to").attr("disabled",false);
+        }else
+        {
+            $("#"+id).val(false);
+           $("#"+id+"from").attr("disabled",true);
+            $("#"+id+"to").attr("disabled",true);
+        }
+        //if($("#"+id).is(":checked")) {
+        //    $("#"+id).prop('checked', false); // Uncheck
+        //} else {
+        //    $("#"+id).prop('checked', true);  // Check
+        //}
+    }
+
+     $('#rtype').on('change', function() {
+            const selectedValue = $(this).val();
+            loadsubRequests();
+        });
+
+
+        function validate_inp()
+        {
+ 
+            let lines = $('#requestInput').val().split('\n');
+            let unique = [...new Set(lines)];
+            let duplicatesRemoved = lines.length - unique.length;
+            $('#requestInput').val(unique.join('\n'));
+                 $("#alert-warning").addClass("d-none");
+            if(duplicatesRemoved > 0)
+            {
+                $("#alert-warning").text(`(${duplicatesRemoved}) duplicate has been removed`);
+                $("#alert-warning").removeClass("d-none");
+            }
+
+           var inputs= $("#requestInput").val();
+           var rtype=$("#rtype").val();
+
+           console.log(inputs);
+           console.log(rtype);
+          $.ajax({
+            url: '/api/request/validate',
+            type: 'POST',
+            contentType: 'application/json',
+            data:JSON.stringify({
+                requestInput: inputs,
+                requestTypeId: rtype
+            }),
+            success: function(response) {
+                // Handle the successful response
+                console.log('Success:', response);
+                if(response.value.some(x => x.correct === false))
+                {
+                    $("#errors").html("");
+                    response.value.forEach((item)=>{
+
+                        if(item.correct == false)
+                        $("#errors").append(`<li class="text-danger">${item.number}</li>`);
+                    });
+                    $("#validate").removeClass("d-none");
+                }else
+                {
+                    $("#validate").addClass("d-none");
+                    $("#vbtn").addClass("d-none");
+                    $("#submit").removeClass("d-none");
+                    $("#alert-success").removeClass("d-none");
+                    $("#cancel").removeClass("d-none");
+                    $("#requestInput").attr("readonly",true);
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle errors
+                console.error('Error:', error);
+            }
+        });
+        }
+
+        function Cancel()
+        {
+            $("#validate").addClass("d-none");
+            $("#vbtn").removeClass("d-none");
+            $("#submit").addClass("d-none");
+            $("#alert-success").addClass("d-none");
+            $("#cancel").addClass("d-none");
+            $("#requestInput").attr("readonly",false);
+            $("#alert-warning").addClass("d-none");
+        }
+
+        loadsubRequests();
+
+        $('#myfrm').submit(function(e) {
+            // your check here
+            console.log($('.form-check-input').length);
+
+            if ($('.form-check-input').length === 0) {
+                e.preventDefault();
+                $("#alert-subrequest").removeClass("d-none");
+            }
+        });
+
+        function changeAllInputs(el,type)
+        {
+            $("."+type).val($(el).val());
+        }
+    </script>
+}
